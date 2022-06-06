@@ -5,6 +5,8 @@ select
 	A.reason,
 	A.status,
 	A.patient_id,
+	A.start_time,
+	A.end_time,
 	P.active as patient_active,
 	A.practice_id,
 	PR.active as practitioner_active,
@@ -20,7 +22,7 @@ left join public.practices PR
     on A.practice_id = PR.id
     
 left join public.clinics C
-	on A.clinic_id = C.id 
+	on A.clinic_id = C.id 	
 
 where 1 = 1 
 	and A.status is not null 
