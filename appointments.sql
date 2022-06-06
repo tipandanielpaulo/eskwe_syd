@@ -7,6 +7,7 @@ select
 	A.patient_id,
 	A.start_time,
 	A.end_time,
+	DATE_PART('hour', A.end_time::timestamp - A.start_time::timestamp) as appointment_length,
 	P.active as patient_active,
 	A.practice_id,
 	PR.active as practitioner_active,
